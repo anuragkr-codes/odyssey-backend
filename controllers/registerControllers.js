@@ -36,6 +36,7 @@ const register = async function (req, res) {
         name: teamName,
         eventId: eventId,
         leader: user._id,
+        members: [],
       });
       await team.save();
 
@@ -46,7 +47,7 @@ const register = async function (req, res) {
       };
       user.event.push(newEvent);
       await user.save();
-      return res.status(200).json({ message: "Team created successfully" });
+      return res.status(200).json(user);
     }
   } catch (ex) {
     console.error(ex);

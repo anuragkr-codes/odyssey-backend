@@ -7,7 +7,7 @@ const teamSchema = new mongoose.Schema({
     unique: true,
   },
   eventId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Number,
     ref: "Event",
     required: true,
   },
@@ -15,6 +15,10 @@ const teamSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
+  },
+  members: {
+    type: [mongoose.Schema.Types.ObjectId],
+    required: false,
   },
   // You can add other properties as needed
 });
