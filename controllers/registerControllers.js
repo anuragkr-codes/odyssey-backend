@@ -1,7 +1,7 @@
 const Team = require("../models/teamModel");
 const register = async function (req, res) {
   try {
-    const { eventId, isIndividual, teamName } = req.body;
+    const { eventId, isIndividual, teamName, teamId } = req.body;
     const user = req.user; //this is set by authentication middleware
 
     const alreadyRegistered =
@@ -33,6 +33,7 @@ const register = async function (req, res) {
       }
 
       const team = new Team({
+        teamId: teamId,
         name: teamName,
         eventId: eventId,
         leader: user._id,
@@ -43,7 +44,8 @@ const register = async function (req, res) {
       const newEvent = {
         id: eventId,
         isIndividual: false,
-        team: team._id,
+        teamId: team.teamId,
+        teamIsLeader: false,
       };
       user.event.push(newEvent);
       await user.save();

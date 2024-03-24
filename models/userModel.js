@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const event = new mongoose.Schema({
   id: { type: Number, required: true },
   isIndividual: { type: Boolean, required: true }, //true for individual event
-  team: { type: mongoose.Schema.ObjectId, required: false },
+  teamId: { type: String, required: false },
+  teamIsLeader: { type: Boolean, required: false },
 });
 
 const userSchema = new mongoose.Schema({
