@@ -30,8 +30,12 @@ app.use(express.urlencoded({ extended: false }));
 
 //ROUTING
 const authRoute = require("./routes/authRoutes");
+const registerRoute = require("./routes/registerRoutes");
+const profileRoute = require("./routes/profileRoute");
 
 app.use("/auth", authRoute);
+app.use("/register", registerRoute);
+app.use("/profile", profileRoute); //used to login user directly with the help of cookie/token in case of a page refresh
 
 //Listen
 app.listen(port, () => {
