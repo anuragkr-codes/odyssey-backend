@@ -36,7 +36,8 @@ const register = async function (req, res) {
         teamId: teamId,
         name: teamName,
         eventId: eventId,
-        leader: user._id,
+        leader_id: user._id,
+        leader_name: user.name,
         members: [],
       });
       await team.save();
@@ -45,7 +46,7 @@ const register = async function (req, res) {
         id: eventId,
         isIndividual: false,
         teamId: team.teamId,
-        teamIsLeader: false,
+        teamIsLeader: true,
       };
       user.event.push(newEvent);
       await user.save();

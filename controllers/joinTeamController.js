@@ -7,7 +7,7 @@ const joinTeam = async function (req, res) {
     const teamExists = await Team.findOne({ eventId, teamId });
     if (teamExists) {
       //update the team with new member
-      teamExists.members.push(user._id);
+      teamExists.members.push({ id: user._id, name: user.name });
       await teamExists.save();
       //update the user with joined team
       const newEvent = {

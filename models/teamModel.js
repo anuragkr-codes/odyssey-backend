@@ -16,16 +16,19 @@ const teamSchema = new mongoose.Schema({
     ref: "Event",
     required: true,
   },
-  leader: {
+  leader_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
+  leader_name: {
+    type: String,
+    required: true,
+  },
   members: {
-    type: [mongoose.Schema.Types.ObjectId],
+    type: [{ id: { type: mongoose.Schema.ObjectId }, name: { type: String } }],
     required: false,
   },
-  // You can add other properties as needed
 });
 
 const Team = mongoose.model("Team", teamSchema);

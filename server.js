@@ -33,11 +33,13 @@ const authRoute = require("./routes/authRoutes");
 const registerRoute = require("./routes/registerRoutes");
 const profileRoute = require("./routes/profileRoute");
 const joinTeamRoute = require("./routes/joinTeamRoute");
+const getTeamsRoute = require("./routes/getTeamsRoute");
 
 app.use("/auth", authRoute);
 app.use("/register", registerRoute);
 app.use("/profile", profileRoute); //used to login user directly with the help of cookie/token in case of a page refresh
 app.use("/joinTeam", joinTeamRoute);
+app.use("/getTeams", getTeamsRoute); //used to return all the teams, the user is a part of
 
 //Listen
 app.listen(port, () => {
