@@ -34,12 +34,14 @@ const registerRoute = require("./routes/registerRoutes");
 const profileRoute = require("./routes/profileRoute");
 const joinTeamRoute = require("./routes/joinTeamRoute");
 const getTeamsRoute = require("./routes/getTeamsRoute");
+const deleteTeamRoute = require("./routes/deleteTeamRoute");
 
 app.use("/auth", authRoute);
 app.use("/register", registerRoute);
 app.use("/profile", profileRoute); //used to login user directly with the help of cookie/token in case of a page refresh
 app.use("/joinTeam", joinTeamRoute);
 app.use("/getTeams", getTeamsRoute); //used to return all the teams, the user is a part of
+app.use("/deleteTeam", deleteTeamRoute); //used to delete a team from Teams collection as well as from all the users
 
 //Listen
 app.listen(port, () => {

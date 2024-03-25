@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("../middlewares/tokenAuthentication.js");
-const joinTeam = require("../controllers/joinTeamController");
+const deleteTeam = require("../controllers/deleteTeamController");
 
-router.post("/", authenticateToken, joinTeam);
+router.delete("/:teamId", authenticateToken, deleteTeam);
 
 module.exports = router;
