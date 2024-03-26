@@ -26,7 +26,7 @@ const loginUser = async function (req, res) {
           {},
           (err, token) => {
             if (err) throw err;
-            res.cookie("token", token, { httpOnly: true });
+            res.cookie("token", token);
             res.json(user);
           }
         );

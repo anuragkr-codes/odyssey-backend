@@ -23,7 +23,7 @@ app.use(
     credentials: true,
     // origin: "http://localhost:5173",
     // origin: "https://dreamscape-techweek.netlify.app/",
-    origin: "*",
+    // origin: "*",
   })
 );
 // app.use(cors());
