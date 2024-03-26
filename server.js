@@ -22,7 +22,8 @@ app.use(
   cors({
     credentials: true,
     // origin: "http://localhost:5173",
-    origin: "https://dreamscape-techweek.netlify.app/",
+    // origin: "https://dreamscape-techweek.netlify.app/",
+    origin: "https://dreamscape-frontend.vercel.app/",
   })
 );
 app.use(express.json());
