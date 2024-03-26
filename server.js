@@ -17,16 +17,16 @@ mongoose
 const app = express();
 const port = 3000 || process.env.PORT;
 
-//middleware
-// app.use(
-//   cors({
-//     credentials: true,
-//     // origin: "http://localhost:5173",
-//     // origin: "https://dreamscape-techweek.netlify.app/",
-//     origin: "https://dreamscape-frontend.vercel.app/",
-//   })
-// );
-app.use(cors());
+// middleware;
+app.use(
+  cors({
+    credentials: true,
+    // origin: "http://localhost:5173",
+    // origin: "https://dreamscape-techweek.netlify.app/",
+    origin: "*",
+  })
+);
+// app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
