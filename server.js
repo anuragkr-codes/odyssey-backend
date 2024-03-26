@@ -21,7 +21,8 @@ const port = 3000 || process.env.PORT;
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://dreamscape-techweek.netlify.app/",
   })
 );
 app.use(express.json());
