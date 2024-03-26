@@ -15,7 +15,7 @@ mongoose
   });
 
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 //middleware
 app.use(
@@ -41,6 +41,7 @@ app.use("/register", registerRoute);
 app.use("/profile", profileRoute); //used to login user directly with the help of cookie/token in case of a page refresh
 app.use("/joinTeam", joinTeamRoute);
 app.use("/getTeams", getTeamsRoute); //used to return all the teams, the user is a part of
+app.use("/deleteTeam", deleteTeamRoute); //used to delete a team from Teams collection as well as from all the users
 app.use("/deleteTeam", deleteTeamRoute); //used to delete a team from Teams collection as well as from all the users
 
 //Listen

@@ -1,5 +1,3 @@
-const express = require("express");
-const mongoose = require("mongoose");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -85,7 +83,16 @@ const registerUser = async function (req, res) {
   }
 };
 
+const logoutUser = function (req, res) {
+  const cookieName = "token";
+
+  // Clear the cookie by setting its value to an empty string and setting its expiration to a past date
+  res.cookie(cookieName, "", { expires: new Date(0) });
+  res.status(200).send();
+};
+
 module.exports = {
   loginUser,
   registerUser,
+  logoutUser,
 };
