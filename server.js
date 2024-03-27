@@ -27,7 +27,8 @@ const port = 3000 || process.env.PORT;
 //   })
 // );
 app.use(cors({
-    useCredentials: true,
+    credentials: true,
+    origin: 'https://dreamscape-frontend.vercel.app/',
 }));
 app.use(express.json());
 app.use(cookieParser());
