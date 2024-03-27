@@ -26,7 +26,12 @@ const loginUser = async function (req, res) {
           {},
           (err, token) => {
             if (err) throw err;
-            res.cookie("token", token);
+            res.cookie("token", token, {
+              sameSite: 'none',
+              path: '/',
+              httpOnly: true,
+            });
+
             res.json(user);
           }
         );
