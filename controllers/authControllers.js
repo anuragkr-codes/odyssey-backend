@@ -26,10 +26,13 @@ const loginUser = async function (req, res) {
           {},
           (err, token) => {
             if (err) throw err;
+            const expiryDate = new Date();
+            expiryDate.setDate(expiryDate.getDate() + 7);
             res.cookie("token", token, {
               sameSite: 'none',
               path: '/',
               httpOnly: true,
+              expires: expiryDate,
             });
 
             res.json(user);
