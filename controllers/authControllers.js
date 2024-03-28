@@ -33,6 +33,7 @@ const loginUser = async function (req, res) {
               path: '/',
               httpOnly: true,
               expires: expiryDate,
+              secure: true
             });
 
             res.json(user);
