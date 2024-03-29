@@ -93,7 +93,12 @@ const registerUser = async function (req, res) {
 
 const logoutUser = function (req, res) {
   const cookieName = "token";
-  res.clearCookie("token", { secure: true });
+  res.clearCookie("token", {
+    sameSite: "none",
+    path: "/",
+    httpOnly: true,
+    secure: true,
+  });
   // Clear the cookie by setting its value to an empty string and setting its expiration to a past date
   //res.cookie(cookieName, "", { expires: new Date(0) });
   res.status(200).send();
