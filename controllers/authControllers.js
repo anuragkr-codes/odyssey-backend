@@ -29,10 +29,10 @@ const loginUser = async function (req, res) {
             const expiryDate = new Date();
             expiryDate.setDate(expiryDate.getDate() + 7);
             res.cookie("token", token, {
-              sameSite: 'none',
-              path: '/',
+              sameSite: "none",
+              path: "/",
               httpOnly: true,
-              secure: true
+              secure: true,
             });
 
             res.json(user);
@@ -93,7 +93,7 @@ const registerUser = async function (req, res) {
 
 const logoutUser = function (req, res) {
   const cookieName = "token";
-  res.clearCookie('token');
+  res.clearCookie("token", { secure: true });
   // Clear the cookie by setting its value to an empty string and setting its expiration to a past date
   //res.cookie(cookieName, "", { expires: new Date(0) });
   res.status(200).send();
