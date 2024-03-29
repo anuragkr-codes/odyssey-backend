@@ -1,7 +1,7 @@
 const Team = require("../models/teamModel");
 const register = async function (req, res) {
   try {
-    const { eventId, isIndividual, teamName, teamId } = req.body;
+    const { eventId, isIndividual, teamName, teamId, maxTeamSize } = req.body;
     const user = req.user; //this is set by authentication middleware
 
     const alreadyRegistered =
@@ -39,6 +39,7 @@ const register = async function (req, res) {
         leader_id: user._id,
         leader_name: user.name,
         members: [],
+        maxTeamSize: maxTeamSize,
       });
       await team.save();
 

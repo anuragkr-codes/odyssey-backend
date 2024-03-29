@@ -29,6 +29,10 @@ const teamSchema = new mongoose.Schema({
     type: [{ id: { type: mongoose.Schema.ObjectId }, name: { type: String } }],
     required: false,
   },
+  maxTeamSize: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Team = mongoose.model("Team", teamSchema);

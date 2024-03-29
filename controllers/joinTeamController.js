@@ -6,6 +6,13 @@ const joinTeam = async function (req, res) {
 
     const teamExists = await Team.findOne({ eventId, teamId });
     if (teamExists) {
+      //check if team is already full
+      const maxTeamSize = teamExists.maxTeamSize;
+      const currTeamSize = teamExists.members.length + 1;
+      if (currTeamSize >= maxTeamSize) {
+        return res.status(400).json({ error: "Team is already full" });
+      }
+
       //update the team with new member
       teamExists.members.push({ id: user._id, name: user.name });
       await teamExists.save();
