@@ -21,8 +21,8 @@ const port = 3000 || process.env.PORT;
 app.use(
   cors({
     credentials: true,
-    // origin: "https://dreamscape-frontend.vercel.app",
-    origin: "http://localhost:5173", //toggle for local testing
+    origin: "https://dreamscape-frontend.vercel.app",
+    // origin: "http://localhost:5173", //toggle for local testing
   })
 );
 app.use(express.json());
