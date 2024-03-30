@@ -21,7 +21,7 @@ const port = 3000 || process.env.PORT;
 app.use(
   cors({
     credentials: true,
-    origin: "*",
+    origin: "https://dreamscape.ieeemanipal.com",
     // origin: "http://localhost:5173", //toggle for local testing
   })
 );
