@@ -9,7 +9,12 @@ const event = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  regNo: { type: String, required: true, unique: true },
+  regNo: { type: String, required: false, unique: true },
+  collegeName: { type: String, required: false },
+  membershipNo: {
+    type: String,
+    required: false,
+  },
   phone: {
     type: Number,
     required: true,

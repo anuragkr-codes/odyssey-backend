@@ -52,7 +52,8 @@ const loginUser = async function (req, res) {
 
 const registerUser = async function (req, res) {
   try {
-    const { name, regNo, email, phone, password } = req.body;
+    const { name, regNo, collegeName, membershipNo, email, phone, password } =
+      req.body;
     console.log(name, regNo, email, phone, password);
 
     //check if existing user
@@ -72,6 +73,8 @@ const registerUser = async function (req, res) {
     const user = await User.create({
       name,
       regNo,
+      collegeName,
+      membershipNo,
       email,
       phone,
       password: hashedPassword,
