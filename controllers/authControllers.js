@@ -31,6 +31,7 @@ const loginUser = async function (req, res) {
             res.cookie("token", token, {
               sameSite: "none",
               path: "/",
+              httpOnly: true,
               secure: true,
             });
 
@@ -98,6 +99,7 @@ const logoutUser = function (req, res) {
   res.clearCookie("token", {
     sameSite: "none",
     path: "/",
+    httpOnly: true,
     secure: true,
   });
   // Clear the cookie by setting its value to an empty string and setting its expiration to a past date
