@@ -29,10 +29,8 @@ const loginUser = async function (req, res) {
             const expiryDate = new Date();
             expiryDate.setDate(expiryDate.getDate() + 7);
             res.cookie("token", token, {
-              domain: "https://dreamscape-backend.onrender.com/",
               sameSite: "none",
               path: "/",
-              httpOnly: true,
               secure: true,
             });
 
@@ -98,10 +96,8 @@ const registerUser = async function (req, res) {
 const logoutUser = function (req, res) {
   const cookieName = "token";
   res.clearCookie("token", {
-    domain: "https://dreamscape-backend.onrender.com/",
     sameSite: "none",
     path: "/",
-    httpOnly: true,
     secure: true,
   });
   // Clear the cookie by setting its value to an empty string and setting its expiration to a past date
