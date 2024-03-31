@@ -29,6 +29,9 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
+//set templating engine (used for reset-password endpoint)
+app.set("view engine", "ejs");
+
 //ROUTING
 const authRoute = require("./routes/authRoutes");
 const registerRoute = require("./routes/registerRoutes");
@@ -36,6 +39,7 @@ const profileRoute = require("./routes/profileRoute");
 const joinTeamRoute = require("./routes/joinTeamRoute");
 const getTeamsRoute = require("./routes/getTeamsRoute");
 const deleteTeamRoute = require("./routes/deleteTeamRoute");
+const passwordRoutes = require("./routes/passwordRoutes");
 
 app.use("/auth", authRoute);
 app.use("/register", registerRoute);
@@ -44,6 +48,7 @@ app.use("/joinTeam", joinTeamRoute);
 app.use("/getTeams", getTeamsRoute); //used to return all the teams, the user is a part of
 app.use("/deleteTeam", deleteTeamRoute); //used to delete a team from Teams collection as well as from all the users
 app.use("/deleteTeam", deleteTeamRoute); //used to delete a team from Teams collection as well as from all the users
+app.use("/password", passwordRoutes);
 
 //Listen
 app.listen(port, () => {
