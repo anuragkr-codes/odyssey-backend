@@ -30,7 +30,7 @@ const forgotPassword = async function (req, res) {
     const token = jwt.sign({ email: user.email, id: user._id }, uniqueSecret, {
       expiresIn: "5m",
     });
-    const link = `https://dreamscape-backend.onrender.com/password/reset/${user._id}/${token}`;
+    const link = `https://dsbackend.ieeemanipal.com/password/reset/${user._id}/${token}`;
     // const link = `http://localhost:3000/password/reset/${user._id}/${token}`;
 
     const mailOptions = {
@@ -55,7 +55,7 @@ const forgotPassword = async function (req, res) {
             <p>You are receiving this email because a password reset request was made for your account.</p>
             <p>Please click on the link below or paste this into your browser to enable account access:</p>
             <div style="margin-top: 20px;">
-              <a href="${link}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;">Reset Password</a>
+              <a href="${link}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease;margin: 0 auto;">Reset Password</a>
               <br>
               <span>${link}</span>
             </div>
@@ -63,7 +63,7 @@ const forgotPassword = async function (req, res) {
             <p>If you did not request a password reset, please ignore this message.</p>
             <p style="margin-top: 20px;">
               Best regards,<br>
-              DreamScape Dev Team, IEEESBM
+              Dreamscape Dev Team, IEEESBM
             </p>
         </div>`,
     };
