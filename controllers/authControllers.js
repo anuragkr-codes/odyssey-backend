@@ -58,7 +58,7 @@ const registerUser = async function (req, res) {
 
     //check if existing user
     const existingUser = await User.findOne({
-      $or: [{ regNo: regNo }, { email: email }, { phone: phone }],
+      $or: [{ email: email }, { phone: phone }],
     });
 
     if (existingUser) {
