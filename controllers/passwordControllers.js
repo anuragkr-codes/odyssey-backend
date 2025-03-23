@@ -30,8 +30,7 @@ const forgotPassword = async function (req, res) {
     const token = jwt.sign({ email: user.email, id: user._id }, uniqueSecret, {
       expiresIn: "5m",
     });
-    const link = `https://dsbackend.ieeemanipal.com/password/reset/${user._id}/${token}`;
-    // const link = `http://localhost:3000/password/reset/${user._id}/${token}`;
+    const link = `${process.env.BACKEND_URL}/password/reset/${user._id}/${token}`;
 
     const mailOptions = {
       from: {
