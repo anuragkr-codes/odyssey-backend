@@ -41,6 +41,9 @@ const getTeamsRoute = require("./routes/getTeamsRoute");
 const deleteTeamRoute = require("./routes/deleteTeamRoute");
 const passwordRoutes = require("./routes/passwordRoutes");
 
+app.route("/").get((req, res) => {
+  res.send("Hello World");
+});
 app.use("/auth", authRoute);
 app.use("/register", registerRoute);
 app.use("/profile", profileRoute); //used to login user directly with the help of cookie/token in case of a page refresh
