@@ -34,7 +34,7 @@ const forgotPassword = async function (req, res) {
 
     const mailOptions = {
       from: {
-        name: "Dreamscape IEEESBM",
+        name: "Odyssey IEEESBM",
         address: process.env.IEEE_EMAIL,
       },
       to: user.email,
@@ -47,9 +47,9 @@ const forgotPassword = async function (req, res) {
         "Note: This link is valid for 5 minutes.\n\n" +
         "If you did not request a password reset, please ignore this message.\n\n" +
         "Best regards,\n" +
-        "Dreamscape Dev Team, IEEESBM",
+        "Odyssey Dev Team, IEEESBM",
       html: `<div style="max-width: 600px; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
-            <img src="https://dreamscape.ieeemanipal.com/assets/dreamscape-logo-Ch6qICn0.png" alt="Dreamscape Logo" width="400" style="display: block; margin: 0 auto; margin-bottom: 20px;">
+            <h1 style="color: #FFFFFF; background-color: #0066CC; font-family: 'Mioge, sans-serif'; font-size: 50px; text-align: center; padding: 20px; margin-bottom: 20px;">ODYSSEY</h1>
             <p>Dear ${user.name},</p>
             <p>You are receiving this email because a password reset request was made for your account.</p>
             <p>Please click on the link below or paste this into your browser to enable account access:</p>
@@ -62,7 +62,7 @@ const forgotPassword = async function (req, res) {
             <p>If you did not request a password reset, please ignore this message.</p>
             <p style="margin-top: 20px;">
               Best regards,<br>
-              Dreamscape Dev Team, <strong>IEEESBM</strong>
+              Odyssey Dev Team, <strong>IEEESBM</strong>
             </p>
         </div>`,
     };
